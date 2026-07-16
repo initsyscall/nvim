@@ -29,7 +29,7 @@ Coding
 - Git
 
 ## Features
-- LSP support (lua_ls, pyright, ts_ls) with Mason integration
+- LSP support (lua_ls, pyright) with Mason integration
 - DAP (debugging) for Python, C/C++, Rust
 - Integrated code runner for quick script execution
 - Treesitter, autocompletion (blink.cmp), automatic formatting (conform.nvim)

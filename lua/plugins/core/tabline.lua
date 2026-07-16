@@ -19,7 +19,7 @@ return {
     -- Hide tabline on No Name buffers
     vim.api.nvim_create_autocmd({"FileType", "BufEnter"}, {
       callback = function()
-        if vim.fn.expand("%") == "" then
+        if vim.api.nvim_buf_get_name(0) == "" then
           vim.o.showtabline = 0
         else
           vim.o.showtabline = 2

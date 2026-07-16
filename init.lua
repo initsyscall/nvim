@@ -1,5 +1,5 @@
 -- Neovim version check
-if vim.version().major < 0 or (vim.version().major == 0 and vim.version().minor < 10) then
+if vim.version().minor < 10 then
   vim.notify("Neovim 0.10+ required", vim.log.levels.ERROR)
   return
 end

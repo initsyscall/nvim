@@ -58,12 +58,6 @@ return {
             if not is_termux or vim.fn.executable(server_name) == 1 then
               require("lspconfig")[server_name].setup({
                 capabilities = capabilities,
-                on_error = function(err)
-                  vim.notify(
-                    "LSP " .. server_name .. " failed: " .. tostring(err),
-                    vim.log.levels.WARN
-                  )
-                end,
               })
             end
           end,

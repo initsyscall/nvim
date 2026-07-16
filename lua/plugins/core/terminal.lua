@@ -31,9 +31,9 @@ return {
     },
   },
   keys = {
-    { "<leader>tt", function() Snacks.terminal.toggle(nil, { count = vim.v.count1 }) end,                  desc = "Toggle Terminal (ID)" },
-    { "<leader>tf", function() Snacks.terminal.open(nil, { win = { position = "float" } }) end,            desc = "Terminal (Float)" },
-    { "<leader>gg", function() Snacks.lazygit() end,                                                       desc = "Lazygit" },
-    { "<leader>ty", function() Snacks.terminal.toggle("yazi", { win = { style = "terminal_float" } }) end, desc = "Yazi" },
+    { "<leader>tt", function() require("snacks").terminal.toggle(nil, { count = vim.v.count1 }) end,                  desc = "Toggle Terminal (ID)" },
+    { "<leader>tf", function() require("snacks").terminal.open(nil, { win = { position = "float" } }) end,            desc = "Terminal (Float)" },
+    { "<leader>gg", function() require("snacks").lazygit() end,                                                       desc = "Lazygit" },
+    { "<leader>ty", function() require("snacks").terminal.toggle("yazi", { win = { style = "terminal_float" } }) end, desc = "Yazi" },
   }
 }

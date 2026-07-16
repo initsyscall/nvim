@@ -5,7 +5,6 @@ M.options = {
     servers = {
       lua_ls = true,
       pyright = true,
-      ts_ls = true,
     },
     formatting = {
       format_on_save = true,

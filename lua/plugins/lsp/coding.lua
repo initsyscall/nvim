@@ -7,23 +7,15 @@ return {
   -- 2. SURROUND
   {
     "echasnovski/mini.surround",
-    keys = function(_, keys)
-      local plugin = require("lazy.core.config").spec.plugins["mini.surround"]
-      local opts = require("lazy.core.plugin").values(plugin, "opts", false)
-      local mappings = {
-        { opts.mappings.add,            desc = "Add Surrounding",         mode = { "n", "v" } },
-        { opts.mappings.delete,         desc = "Delete Surrounding" },
-        { opts.mappings.find,           desc = "Find Right Surrounding" },
-        { opts.mappings.find_left,      desc = "Find Left Surrounding" },
-        { opts.mappings.highlight,      desc = "Highlight Surrounding" },
-        { opts.mappings.replace,        desc = "Replace Surrounding" },
-        { opts.mappings.update_n_lines, desc = "Update Surrounding Lines" },
-      }
-      mappings = vim.tbl_filter(function(m)
-        return m[1] and #m[1] > 0
-      end, mappings)
-      return vim.list_extend(mappings, keys)
-    end,
+    keys = {
+      { "gsa", mode = { "n", "v" }, desc = "Add Surrounding" },
+      { "gsd",                      desc = "Delete Surrounding" },
+      { "gsf",                      desc = "Find Right Surrounding" },
+      { "gsF",                      desc = "Find Left Surrounding" },
+      { "gsh",                      desc = "Highlight Surrounding" },
+      { "gsr",                      desc = "Replace Surrounding" },
+      { "gsn",                      desc = "Update Surrounding Lines" },
+    },
     opts = {
       mappings = {
         add = "gsa",

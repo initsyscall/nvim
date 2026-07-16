@@ -12,7 +12,6 @@ return {
       "<leader>bD",
       function()
         require("mini.bufremove").delete(0, true)
-        vim.cmd("bdelete!")
       end,
       desc = "Force delete buffer",
     },

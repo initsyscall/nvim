@@ -78,7 +78,7 @@ return {
     vim.keymap.set("n", "<leader>ug", function()
       ghost_enabled = not ghost_enabled
       -- Update the completion menu to reflect changes
-      vim.api.nvim_set_hl(0, "BlinkCmpGhostText", ghost_enabled and { link = "Comment" } or { blend = 100 })
+      vim.api.nvim_set_hl(0, "BlinkCmpGhostText", ghost_enabled and { link = "Comment" } or { link = "Normal" })
 
       local state = ghost_enabled and "Enabled" or "Disabled"
       local Snacks = package.loaded["snacks"]
