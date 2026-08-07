@@ -16,6 +16,7 @@ return {
        { "<leader>t", group = "Terminal" },
        { "<leader>u", group = "UI" },
        { "<leader>r", group = " Runner" },
+       { "<leader>R", group = "Rust" },
        { "<leader>q", group = "Quit" },
     },
   },

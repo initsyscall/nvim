@@ -35,7 +35,7 @@ return {
     -- 2. AUTOMATION (Mason Integration)
     require("mason-nvim-dap").setup({
       automatic_installation = true,
-      ensure_installed = { "python" },
+      ensure_installed = { "python", "codelldb" },
       handlers = {
         function(config)
           require('mason-nvim-dap').default_setup(config)
@@ -101,7 +101,10 @@ return {
           end
           dap.configurations.c = smart_config("c")
           dap.configurations.cpp = smart_config("cpp")
-          dap.configurations.rust = smart_config("rust")
+          -- rust is managed by rustaceanvim; don't override it here
+          if not package.loaded["rustaceanvim"] then
+            dap.configurations.rust = smart_config("rust")
+          end
         end,
       },
     })

@@ -54,6 +54,10 @@ return {
         automatic_installation = not is_termux,
         handlers = {
           function(server_name)
+            -- rust-analyzer is managed by rustaceanvim; never setup via lspconfig
+            if server_name == "rust_analyzer" then
+              return
+            end
             -- Only attempt start if binary exists (Protects Termux users)
             if not is_termux or vim.fn.executable(server_name) == 1 then
               require("lspconfig")[server_name].setup({

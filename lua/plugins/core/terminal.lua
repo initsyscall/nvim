@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   opts = {
     terminal = { enabled = true },
+    zen = { enabled = true },
     styles = {
       terminal = {
         bo = { filetype = "snacks_terminal" },
@@ -35,5 +36,6 @@ return {
     { "<leader>tf", function() require("snacks").terminal.open(nil, { win = { position = "float" } }) end,            desc = "Terminal (Float)" },
     { "<leader>gg", function() require("snacks").lazygit() end,                                                       desc = "Lazygit" },
     { "<leader>ty", function() require("snacks").terminal.toggle("yazi", { win = { style = "terminal_float" } }) end, desc = "Yazi" },
+    { "<leader>z",  function() require("snacks").zen.toggle() end,                                                    desc = "Zen Mode" },
   }
 }

@@ -24,16 +24,20 @@ Coding
 
 
 ## Requirements
-- Neovim >= 0.10
+- Neovim >= 0.12
 - Nerd Font (for icons)
 - Git
 
 ## Features
-- LSP support (lua_ls, pyright) with Mason integration
-- DAP (debugging) for Python, C/C++, Rust
+- LSP (lua_ls, pyright, rust-analyzer) with Mason integration
+- First-class Rust support via rustaceanvim (`<leader>R`)
+- DAP for Python, C/C++, Rust (codelldb)
 - Integrated code runner for quick script execution
 - Treesitter, autocompletion (blink.cmp), automatic formatting (conform.nvim)
 - Modular Lua plugin structure with lazy.nvim
+
+> [!NOTE]
+> Disable Rust support by setting `rust.enabled = false` in `lua/config/lsp.lua`.
 
 ## Installation
 ```bash
