@@ -5,10 +5,11 @@ return {
     version = false,
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
-    cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
+    cmd = { "TSInstall", "TSUpdate" },
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
+      ensure_installed = { "rust" },
       auto_install = true,
       incremental_selection = {
         enable = true,
@@ -28,17 +29,8 @@ return {
       },
     },
     config = function(_, opts)
-      -- CRASH PROTECTION: Use pcall to load the config
-      -- If treesitter is broken, this prevents Neovim from failing to start.
-      local status, ts = pcall(require, "nvim-treesitter.configs")
-
-      if not status then
-        -- Silently fail or notify if you want to know
-        -- vim.notify("Treesitter failed to load. Run :TSUpdate", vim.log.levels.WARN)
-        return
-      end
-
-      ts.setup(opts)
+      -- Modern nvim-treesitter API (nvim-treesitter.configs was removed)
+      require("nvim-treesitter").setup(opts)
     end,
   },
 

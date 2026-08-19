@@ -64,17 +64,17 @@ return {
             hover = { actions = { enable = true } },
             completion = { fullFunctionSignatures = true },
             files = { excludeDirs = { "target" } },
-            rustfmt = { extraArgs = { "--edition", "2021" } },
           },
         },
       },
       dap = {
         autoload_configurations = true,
-        adapter = function(cb)
+        adapter = function()
           if vim.fn.filereadable(codelldb_path) == 1 then
-            cb(cfg.get_codelldb_adapter(codelldb_path, liblldb_path))
+            return cfg.get_codelldb_adapter(codelldb_path, liblldb_path)
           else
             vim.notify("codelldb not installed. Run :MasonInstall codelldb", vim.log.levels.WARN)
+            return false
           end
         end,
       },
