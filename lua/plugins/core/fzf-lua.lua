@@ -19,6 +19,10 @@ return {
           "%.DS_Store",
         },
       },
+      files = {
+        -- Only list files by default (no directories) unless overridden (e.g. <leader>fd)
+        fd_opts = "--type f --hidden --follow",
+      },
     },
     keys = {
       -- find
