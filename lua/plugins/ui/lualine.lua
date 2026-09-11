@@ -17,7 +17,7 @@ return {
         globalstatus = true,
         theme = require('themeInit').get_lualine_theme(),
         component_separators = { left = '|', right = '|' },
-        section_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
       },
       sections = {
         lualine_a = { 'mode' },

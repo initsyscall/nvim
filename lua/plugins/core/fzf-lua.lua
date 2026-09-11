@@ -19,10 +19,6 @@ return {
           "%.DS_Store",
         },
       },
-      files = {
-        -- Only list files by default (no directories) unless overridden (e.g. <leader>fd)
-        fd_opts = "--type f --hidden --follow",
-      },
     },
     keys = {
       -- find
@@ -37,7 +33,7 @@ return {
       { "<leader>fd", function()
           local fzf_lua = require("fzf-lua")
           fzf_lua.files({
-            fd_opts = "--type d --hidden --follow --exclude .git --exclude node_modules --exclude .dist --exclude .cache --exclude __pycache__ --exclude target --exclude .next",
+            fd_opts = "--type d --hidden --exclude .git --exclude node_modules --exclude .dist --exclude .cache --exclude __pycache__ --exclude target --exclude .next",
             file_icons = false,
             actions = {
               ["default"] = function(selected, _)
