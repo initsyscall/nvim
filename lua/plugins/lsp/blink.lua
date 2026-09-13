@@ -30,7 +30,7 @@ return {
 
     -- 4. COMPLETION UI & GHOST TEXT
     completion = {
-      ghost_text = { enabled = false }, -- Off by default, toggleable via <leader>ug
+      ghost_text = { enabled = true },
       documentation = {
         auto_show = true,
         auto_show_delay_ms = 200,
