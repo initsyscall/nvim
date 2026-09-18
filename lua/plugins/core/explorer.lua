@@ -19,6 +19,7 @@ return {
   opts = {
     close_if_last_window = true,
     hijack_netrw_behavior = "open_default",
+    popup_border_style = "rounded",
     commands = {
       change_context = function(state)
         local node = state.tree:get_node()
@@ -52,7 +53,16 @@ return {
       },
     },
     default_component_configs = {
-      indent = { with_expanders = true, expander_collapsed = "", expander_expanded = "" },
+      indent = {
+        indent_size = 2,
+        padding = 1,
+        with_markers = true,
+        indent_marker = "▏", -- thin guide line
+        last_indent_marker = "└",
+        with_expanders = true,
+        expander_collapsed = "",
+        expander_expanded = "",
+      },
       icon = {
         folder_closed = "",
         folder_open = "",

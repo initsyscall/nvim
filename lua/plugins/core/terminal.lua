@@ -4,6 +4,7 @@ return {
     terminal = { enabled = true },
     zen = { enabled = true },
     dim = { enabled = true, scope = { min_size = 5, max_size = 20 } },
+    scroll = { enabled = true },
     styles = {
       terminal = {
         bo = { filetype = "snacks_terminal" },

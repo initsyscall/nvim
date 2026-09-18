@@ -5,6 +5,7 @@ vim.opt.wrap = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.scrolloff = 8
+vim.opt.smoothscroll = true -- smooth mouse/trackpad scrolling
 
 -- Standard Defaults
 vim.opt.clipboard = "unnamedplus"
