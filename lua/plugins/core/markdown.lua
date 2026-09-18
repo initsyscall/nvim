@@ -1,6 +1,6 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
-  ft = { "markdown", "Avante" },
+  ft = { "markdown" },
   opts = {
     code = {
       sign = false,

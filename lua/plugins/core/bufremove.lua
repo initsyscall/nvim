@@ -4,7 +4,7 @@ return {
     {
       "<leader>bd",
       function()
-        require("mini.bufremove").delete(0, true)
+        require("mini.bufremove").delete(0, false)
       end,
       desc = "Delete buffer",
     },

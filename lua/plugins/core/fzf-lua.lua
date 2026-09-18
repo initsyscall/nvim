@@ -29,21 +29,6 @@ return {
       { "<leader>ff", function() require("fzf-lua").files() end, desc = "Find Files" },
       { "<leader>fg", function() require("fzf-lua").git_files() end, desc = "Find Git Files" },
       { "<leader>fr", function() require("fzf-lua").oldfiles() end, desc = "Recent" },
-      -- folders only (excludes .git, .dist, node_modules, etc.)
-      { "<leader>fd", function()
-          local fzf_lua = require("fzf-lua")
-          fzf_lua.files({
-            fd_opts = "--type d --hidden --exclude .git --exclude node_modules --exclude .dist --exclude .cache --exclude __pycache__ --exclude target --exclude .next",
-            file_icons = false,
-            actions = {
-              ["default"] = function(selected, _)
-                if #selected == 0 then return end
-                local path = vim.fn.fnamemodify(selected[1], ":p")
-                require("neo-tree.command").execute({ toggle = true, dir = path })
-              end,
-            },
-          })
-        end, desc = "Find Folders" },
       -- git
       { "<leader>gb", function() require("fzf-lua").git_branches() end, desc = "Git Branches" },
       { "<leader>gl", function() require("fzf-lua").git_commits() end, desc = "Git Log" },

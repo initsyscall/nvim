@@ -4,7 +4,6 @@ return {
     "rcarriga/nvim-dap-ui",
     "jay-babu/mason-nvim-dap.nvim",
     "theHamsta/nvim-dap-virtual-text",
-    "jbyuki/one-small-step-for-vimkind",
   },
   keys = {
     { "<leader>dB", function() require("dap").set_breakpoint(vim.fn.input('Condition: ')) end, desc = "Breakpoint Condition" },

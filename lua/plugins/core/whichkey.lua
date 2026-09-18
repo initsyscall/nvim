@@ -12,7 +12,6 @@ return {
        { "<leader>c", group = "Code" },
        { "<leader>b", group = "Buffer" },
        { "<leader>e", group = "Explorer" },
-       { "<leader>m", group = "MiniExplorer" },
        { "<leader>t", group = "Terminal" },
        { "<leader>u", group = "UI" },
        { "<leader>r", group = " Runner" },

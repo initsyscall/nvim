@@ -27,24 +27,11 @@ return {
         install_root_dir = is_termux and vim.fn.expand("$HOME/.local/share/nvim/mason") or nil,
       })
 
-      -- [D] EXTRACT SERVERS (Bulletproofed for Array or Dictionary formats)
+      -- [D] EXTRACT SERVERS (dictionary format: name = true)
       local active_servers = {}
-      local seen = {} -- Prevent duplicates if mixed formats occur
-
-      for k, v in pairs(config.lsp.servers or {}) do
-        local server_name = nil
-
-        -- If it's the NEW dictionary format: `pyright = true`
-        if type(k) == "string" and v == true then
-          server_name = k
-          -- If it's the OLD array format: `"pyright"`
-        elseif type(k) == "number" and type(v) == "string" then
-          server_name = v
-        end
-
-        if server_name and not seen[server_name] then
+      for server_name, enabled in pairs(config.lsp.servers or {}) do
+        if enabled == true then
           table.insert(active_servers, server_name)
-          seen[server_name] = true
         end
       end
 
