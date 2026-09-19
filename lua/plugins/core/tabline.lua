@@ -32,10 +32,6 @@ return {
       separator_style = "thin",
       enforce_regular_tabs = false,
       always_show_bufferline = true,
-      sidebar_filetypes = { "neo-tree" },
-      offsets = {
-        { filetype = "neo-tree", text = "", separator = true },
-      },
       sort_by = "insert_at_end",
     },
     highlights = {

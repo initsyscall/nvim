@@ -17,5 +17,3 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.undofile = true
-
-vim.g.netrw_banner = 0

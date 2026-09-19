@@ -5,13 +5,15 @@ local map = vim.keymap.set
 -- =============================================================================
 
 -- 1. SAVE: Leader + w
-map("n", "<leader>ww", "<cmd>w<cr>", { desc = "Save File" })
-map("n", "<leader>wa", "<cmd>w!<cr>", { desc = "Save Forced" })
+map("n", "<leader>w", "<cmd>w<cr>", { desc = "Save File" })
 
--- 2. ESCAPE: 'jj' in insert mode
+-- 2. QUIT: Leader + q
+map("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit All" })
+
+-- 3. ESCAPE: 'jj' in insert mode
 map("i", "jj", "<Esc>", { desc = "Fast Escape" })
 
--- 3. COMMAND MODE: Swap ; and :
+-- 4. COMMAND MODE: Swap ; and :
 map("n", ";", ":", { desc = "Enter Command Mode" })
 map("v", ";", ":", { desc = "Enter Command Mode" })
 
@@ -48,9 +50,7 @@ map("n", "<C-Down>", "<cmd>resize -2<cr>")
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
 
-map("n", "<leader>n", function()
-  vim.cmd("Ex " .. vim.fn.fnameescape(vim.fn.getcwd()))
-end, { desc = "Explorer (netrw)" })
+
 
 -- =============================================================================
 --  BUFFER MANAGEMENT
