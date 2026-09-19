@@ -8,7 +8,6 @@ vim.opt.scrolloff = 8
 vim.opt.smoothscroll = true -- smooth mouse/trackpad scrolling
 
 -- Standard Defaults
-vim.opt.clipboard = "unnamedplus"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.ignorecase = true
@@ -18,3 +17,5 @@ vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.expandtab = true
 vim.opt.undofile = true
+
+vim.g.netrw_banner = 0

@@ -36,12 +36,12 @@ return {
     cmd = { "ConformInfo" },
     keys = {
       {
-        "<leader>cf",
+        "<leader>bf",
         function()
           require("conform").format({ async = true, lsp_fallback = true })
         end,
         mode = "",
-        desc = "Format buffer",
+        desc = "Format Buffer",
       },
     },
     -- Changed to standard table so user/overrides.lua can deep-merge formatters

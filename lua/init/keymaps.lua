@@ -16,8 +16,6 @@ map("n", ";", ":", { desc = "Enter Command Mode" })
 map("v", ";", ":", { desc = "Enter Command Mode" })
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear highlights" })
-map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit All" })
-map("n", "<leader>qq", "<cmd>qa!<cr>", { desc = "Force Quit All" })
 map("n", "]d", function()
   vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next Diagnostic" })
@@ -49,6 +47,10 @@ map("n", "<C-Up>", "<cmd>resize +2<cr>")
 map("n", "<C-Down>", "<cmd>resize -2<cr>")
 map("n", "<C-Left>", "<cmd>vertical resize -2<cr>")
 map("n", "<C-Right>", "<cmd>vertical resize +2<cr>")
+
+map("n", "<leader>n", function()
+  vim.cmd("Ex " .. vim.fn.fnameescape(vim.fn.getcwd()))
+end, { desc = "Explorer (netrw)" })
 
 -- =============================================================================
 --  BUFFER MANAGEMENT
