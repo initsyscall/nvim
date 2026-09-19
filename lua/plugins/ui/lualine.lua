@@ -21,7 +21,7 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { { 'filename', path = 0, file_status = true } },
+        lualine_b = { { 'filename', path = 1, file_status = true } },
         lualine_c = { lsp_servers },
         lualine_x = {
           {

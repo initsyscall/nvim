@@ -1,7 +1,7 @@
 <div align=center>
 
 # initSyscall/nvim
-> My neovim config [Full IDE Experience]. Minimal, highly functional, modular, and aesthetic. This config have everything i may need for my future development. Contains: LSP, DAP, and a Code Runner - Full IDE experience.
+> This is my neovim config built around Minimalism, functionality, modularity, and aesthetic. This config has everything I may need for my present and future development. Contains: a builtin netrw explorer, LSP, DAP, Code Runner and Opencode Support.
 
 
 </div>
@@ -24,12 +24,13 @@ Coding
 
 
 ## Requirements
-- Neovim >= 0.12
+- Neovim >= 0.10
 - Nerd Font (for icons)
 - Git
 
 ## Features
-- LSP (lua_ls, pyright, rust-analyzer) with Mason integration
+- File explorer: builtin netrw, toggled with `<leader>e` (`h`/`l`/`L` to navigate)
+- LSP (lua_ls, pyright) with Mason integration
 - First-class Rust support via rustaceanvim (`<leader>R`)
 - DAP for Python, C/C++, Rust (codelldb)
 - Integrated code runner for quick script execution
