@@ -5,9 +5,7 @@ return {
   version = "*",
   opts = {
     -- 1. KEYMAPS (Standard Super-Tab + Arrow Keys)
-    preset = "default",
     keymap = {
-      preset = "default",
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-e>"] = { "hide" },
       ["<CR>"] = { "accept", "fallback" },
