@@ -1,4 +1,4 @@
--- User Configured Options
+-- Display
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = true
@@ -7,7 +7,7 @@ vim.opt.shiftwidth = 2
 vim.opt.scrolloff = 8
 vim.opt.smoothscroll = true -- smooth mouse/trackpad scrolling
 
--- Standard Defaults
+-- Behavior
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.ignorecase = true

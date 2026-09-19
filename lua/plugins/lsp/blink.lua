@@ -4,7 +4,7 @@ return {
   dependencies = "rafamadriz/friendly-snippets",
   version = "*",
   opts = {
-    -- 1. KEYMAPS (Standard Super-Tab + Arrow Keys)
+    -- Keymaps
     keymap = {
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-e>"] = { "hide" },
@@ -15,18 +15,18 @@ return {
       ["<Down>"] = { "select_next", "fallback" },
     },
 
-    -- 2. APPEARANCE
+    -- Appearance
     appearance = {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = "mono",
     },
 
-    -- 3. SOURCES
+    -- Sources
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
     },
 
-    -- 4. COMPLETION UI & GHOST TEXT
+    -- Completion & ghost text
     completion = {
       ghost_text = { enabled = true },
       documentation = {
@@ -48,7 +48,7 @@ return {
       },
     },
 
-    -- 5. SIGNATURE HELP (Floating Function Args)
+    -- Signature help
     signature = {
       enabled = true,
       window = { border = "rounded" },
@@ -56,15 +56,13 @@ return {
   },
   opts_extend = { "sources.default" },
 
-  -- 6. DYNAMIC CONFIGURATION & TOGGLES
   config = function(_, opts)
     local blink = require("blink.cmp")
     local ghost_enabled = opts.completion.ghost_text.enabled
 
-    -- Setup standard config
     blink.setup(opts)
 
-    -- Force "0.5 Opacity" look by linking to Comment highlight securely
+    -- Ghost text styled via the Comment highlight
     vim.api.nvim_create_autocmd("ColorScheme", {
       callback = function()
         vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment" })
@@ -72,19 +70,10 @@ return {
     })
     vim.api.nvim_set_hl(0, "BlinkCmpGhostText", { link = "Comment" })
 
-    -- Toggle Keymap (<leader>ug) for Ghost Text
     vim.keymap.set("n", "<leader>ug", function()
       ghost_enabled = not ghost_enabled
-      -- Update the completion menu to reflect changes
       vim.api.nvim_set_hl(0, "BlinkCmpGhostText", ghost_enabled and { link = "Comment" } or { link = "Normal" })
-
-      local state = ghost_enabled and "Enabled" or "Disabled"
-      local Snacks = package.loaded["snacks"]
-      if Snacks then
-        Snacks.notify.info("Ghost Text: " .. state, { title = "Blink CMP" })
-      else
-        vim.notify("Ghost Text: " .. state, vim.log.levels.INFO)
-      end
+      require("util").notify("Ghost Text: " .. (ghost_enabled and "Enabled" or "Disabled"), "Blink CMP")
     end, { desc = "Toggle Ghost Text (visual only)" })
   end,
 

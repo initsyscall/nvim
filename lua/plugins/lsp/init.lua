@@ -11,23 +11,23 @@ return {
     config = function()
       local config = require("config.lsp").options
 
-      -- [A] CRASH PROTECTION: Safely load Blink capabilities
+      -- LSP capabilities, guarded so blink.cmp absence can't crash setup
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       local has_blink, blink = pcall(require, "blink.cmp")
       if has_blink then
         capabilities = blink.get_lsp_capabilities(capabilities)
       end
 
-      -- [B] Detect Environment (Termux requires special Mason paths)
+      -- Termux: special Mason install dir
       local is_termux = vim.fn.exists("$TERMUX_VERSION") == 1
 
-      -- [C] MASON SETUP
+      -- Mason
       require("mason").setup({
         ui = { border = "rounded" },
         install_root_dir = is_termux and vim.fn.expand("$HOME/.local/share/nvim/mason") or nil,
       })
 
-      -- [D] EXTRACT SERVERS (dictionary format: name = true)
+      -- Enabled servers (name = true in config.lsp)
       local active_servers = {}
       for server_name, enabled in pairs(config.lsp.servers or {}) do
         if enabled == true then
@@ -35,7 +35,7 @@ return {
         end
       end
 
-      -- [E] MASON-LSPCONFIG
+      -- Mason-lspconfig wiring
       require("mason-lspconfig").setup({
         ensure_installed = not is_termux and active_servers or {},
         automatic_installation = not is_termux,
@@ -55,7 +55,7 @@ return {
         },
       })
 
-      -- [F] LSP ATTACH LOGIC
+      -- On LSP attach: buffer-local keymaps
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("aether_lsp_attach", { clear = true }),
         callback = function(ev)

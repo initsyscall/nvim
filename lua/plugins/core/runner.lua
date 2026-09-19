@@ -1,5 +1,4 @@
 return {
-  -- Runner.nvim: Run current file with one command
   {
     'samonide/runner.nvim',
     event = 'VeryLazy',

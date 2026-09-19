@@ -1,5 +1,3 @@
-
-
 return {
   -- 1. AUTO PAIRS
   { "echasnovski/mini.pairs", event = "VeryLazy", opts = {} },

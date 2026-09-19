@@ -2,15 +2,15 @@ return {
   "rcarriga/nvim-dap-ui",
   dependencies = {
     "mfussenegger/nvim-dap",
-    "nvim-neotest/nvim-nio"
+    "nvim-neotest/nvim-nio",
   },
   keys = {
-    -- Toggles the ENTIRE UI (Bottom and Left)
-    { "<leader>du", function() require("dapui").toggle({}) end,             desc = "Toggle Full UI" },
-    -- Toggles ONLY the Left Sidebar (NASA Mode)
+    -- Toggle full UI (bottom + left)
+    { "<leader>du", function() require("dapui").toggle({}) end, desc = "Toggle Full UI" },
+    -- Toggle left sidebar only
     { "<leader>dN", function() require("dapui").toggle({ layout = 1 }) end, desc = "Toggle NASA Sidebar" },
-    -- Evaluate expression under cursor
-    { "<leader>de", function() require("dapui").eval() end,                 desc = "Eval Under Cursor" },
+    -- Eval expression under cursor
+    { "<leader>de", function() require("dapui").eval() end, desc = "Eval Under Cursor" },
   },
   opts = {
     controls = {
@@ -25,7 +25,7 @@ return {
         step_into = "",
         step_out = "",
         step_over = "",
-        terminate = ""
+        terminate = "",
       }
     },
     floating = { border = "rounded", mappings = { close = { "q", "<Esc>" } } },
@@ -33,7 +33,7 @@ return {
 
     -- LAYOUT DEFINITIONS
     layouts = {
-      -- Layout 1: NASA Mode (Left Sidebar)
+      -- Left sidebar (NASA mode)
       {
         elements = {
           { id = "scopes",      size = 0.25 },
@@ -44,7 +44,7 @@ return {
         position = "left",
         size = 40,
       },
-      -- Layout 2: Basic Mode (Bottom Console)
+      -- Bottom console
       {
         elements = {
           { id = "repl",    size = 0.5 },
@@ -60,7 +60,7 @@ return {
     local dapui = require("dapui")
     dapui.setup(opts)
 
-    -- Auto-open ONLY the bottom console (Layout 2) when debugging starts
+    -- Auto-open the bottom console when debugging starts
     dap.listeners.after.event_initialized["dapui_config"] = function()
       dapui.open({ layout = 2 })
     end
