@@ -1,7 +1,7 @@
 <div align=center>
 
 # initSyscall/nvim
-> This is my neovim config built around Minimalism, functionality, modularity, and aesthetic. This config has everything I may need for my present and future development. Contains: a builtin netrw explorer, LSP, DAP, Code Runner and Opencode Support.
+> This is my neovim config built around Minimalism, functionality, modularity, and aesthetic. This config has everything I may need for my present and future development. Contains: a single-pane neo-tree explorer, LSP, DAP, Code Runner and Opencode Support.
 
 
 </div>
@@ -29,7 +29,7 @@ Coding
 - Git
 
 ## Features
-- File explorer: builtin netrw, toggled with `<leader>e` (`h`/`l`/`L` to navigate)
+- File explorer: neo-tree (single pane, netrw-style), toggled with `<leader>e` (`h`/`l`/`L` to navigate)
 - LSP (lua_ls, pyright) with Mason integration
 - First-class Rust support via rustaceanvim (`<leader>R`)
 - DAP for Python, C/C++, Rust (codelldb)
