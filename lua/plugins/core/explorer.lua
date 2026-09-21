@@ -16,8 +16,14 @@ return {
     filesystem = {
       window = {
         mappings = {
-          -- netrw navigation: h = parent, l = enter/open, L = cd + re-root
-          ["h"] = "navigate_up",
+          -- h = collapse dir, H = up one level (no cd), l = enter/open, L = cd + re-root
+          ["h"] = "close_node",
+          ["H"] = function(state)
+            local bind = state.bind_to_cwd
+            state.bind_to_cwd = false -- navigate up without changing cwd
+            state.commands.navigate_up(state)
+            state.bind_to_cwd = bind
+          end,
           ["l"] = "open",
           ["L"] = "set_root",
         },

@@ -29,7 +29,7 @@ Coding
 - Git
 
 ## Features
-- File explorer: neo-tree (single pane, netrw-style), toggled with `<leader>e` (`h`/`l`/`L` to navigate)
+- File explorer: neo-tree (single pane, netrw-style), toggled with `<leader>e` (`h`/`H`/`l`/`L` to navigate)
 - LSP (lua_ls, pyright) with Mason integration
 - First-class Rust support via rustaceanvim (`<leader>R`)
 - DAP for Python, C/C++, Rust (codelldb)
