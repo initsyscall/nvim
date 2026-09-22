@@ -22,21 +22,36 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
     -- Startup speed ping: lazy already times startup till UIEnter, so just
-    -- surface it as one minimal notification.
-    vim.api.nvim_create_autocmd("UIEnter", {
+    -- surface it as one minimal notification. Fires right after lazy's update
+    -- checker reports, so the "Plugin Updates" toast always comes first.
+    local function show_ping()
+      local ok, stats = pcall(function()
+        return require("lazy.stats").stats()
+      end)
+      local ms = ok and stats.startuptime or 0
+      if ms <= 0 then -- fallback for environments without accurate stat
+        ms = (vim.uv.hrtime() - require("lazy")._start) / 1e6
+      end
+      vim.notify(("Neovim started in %dms"):format(math.floor(ms + 0.5)), vim.log.levels.INFO, {
+        icon = "⚡",
+        title = "startup",
+      })
+    end
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
       once = true,
       callback = function()
-        local ok, stats = pcall(function()
-          return require("lazy.stats").stats()
-        end)
-        local ms = ok and stats.startuptime or 0
-        if ms <= 0 then -- fallback for environments without accurate stat
-          ms = (vim.uv.hrtime() - require("lazy")._start) / 1e6
+        local checker = require("lazy.manage.checker")
+        local done = false
+        local orig_report = checker.report
+        checker.report = function(notify)
+          local ret = orig_report(notify) -- submits the update toast if any
+          if not done then
+            done = true
+            vim.schedule(show_ping) -- submit the ping right after it
+          end
+          return ret
         end
-        vim.notify(("Neovim started in %dms"):format(math.floor(ms + 0.5)), vim.log.levels.INFO, {
-          icon = "⚡",
-          title = "startup",
-        })
       end,
     })
   end,
