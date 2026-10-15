@@ -22,8 +22,9 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { { 'filename', path = 1, file_status = true } },
-        lualine_c = { lsp_servers },
-        lualine_x = {
+        lualine_c = {}, -- no default filename here; b already shows the path
+        lualine_x = { lsp_servers },
+        lualine_y = {
           {
             'diagnostics',
             sources = { 'nvim_diagnostic' },
@@ -43,7 +44,6 @@ return {
           },
           'location',
         },
-        lualine_y = {},
         lualine_z = {},
       },
     })
